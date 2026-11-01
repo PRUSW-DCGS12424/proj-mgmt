@@ -21,4 +21,16 @@ public enum ProjectStatus {
     public String toString() {
         return description;
     }
+
+    public static ProjectStatus fromDescripcion(String descripcion) {
+        for (ProjectStatus status : values()) {
+            if (status.description.equals(descripcion)) {
+                return status;
+            }
+        }
+
+        throw new IllegalArgumentException(
+                "Estado desconocido: " + descripcion
+        );
+    }
 }

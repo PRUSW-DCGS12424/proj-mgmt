@@ -22,4 +22,16 @@ public enum IndustrySector {
     public String toString() {
         return description;
     }
+
+    public static IndustrySector fromDescripcion(String descripcion) {
+        for (IndustrySector sector : values()) {
+            if (sector.description.equals(descripcion)) {
+                return sector;
+            }
+        }
+
+        throw new IllegalArgumentException(
+                "Sector desconocido: " + descripcion
+        );
+    }
 }
